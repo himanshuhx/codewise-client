@@ -74,6 +74,7 @@ body {
   padding: 10px;
   border-radius: 5px;
   font-size: 16px;
+  font-weight: bold;
   cursor: pointer;
   transition: all 0.2s ease-in-out;
 }
@@ -103,6 +104,56 @@ body {
   color: greenyellow;
 }
 
+.copyRoomBtn {
+  margin-bottom: 14px;
+  background-color: #febc04;
+  text-decoration: none;
+  transition: all 0.2s ease-in-out;
+}
+
+.copyRoomBtn:hover {
+  background-color: #ebae05;
+  color: white;
+}
+
+.leaveBtn {
+  text-decoration: none;
+  background-color: #bd000d;
+  transition: all 0.2s ease-in-out;
+  margin-bottom: 14px;
+}
+
+.leaveBtn:hover {
+  background-color: #cf000f;
+  color: white;
+}
 .createRoomInfo {
   margin-bottom: 12px;
+}
+
+.editorPage {
+  display: grid;
+  grid-template-columns: 230px 1fr;
+}
+
+.editor > section {
+  font-size: 120px;
+}
+
+.editorInfoSection {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
+  background-color: #2d1621;
+}
+
+.editorInfoSection > h4 {
+  color: rgb(149, 223, 39);
+  text-align: center;
+  font-size: 26px;
+  font-weight: bold;
+}
+
+.clientSection {
+  text-align: center;
 }
