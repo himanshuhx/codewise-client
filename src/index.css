@@ -14,7 +14,8 @@ body {
   position: fixed;
   width: 100%;
   top: 0;
-  background-color: #febc04;
+  background-color: #2d1621;
+  color: #febc04;
   padding-left: 50px;
 }
 
@@ -31,33 +32,33 @@ body {
   flex-direction: column;
   align-items: center;
   padding: 20px;
+  width: 60vh;
   max-width: 80%;
   border-radius: 20px;
   box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
 .homePageLogo {
-  height: 250px;
-  margin-top: 14px;
+  height: 20vh;
   margin-bottom: 14px;
 }
 
 .formWrapper input {
-  width: 80%;
+  width: 90%;
 }
 
 .mainLabel {
-  margin-bottom: 14px;
+  margin-bottom: 18px;
   margin-top: 0;
 }
 
 .homeInput {
   padding: 10px;
-  border-radius: 15px;
+  border-radius: 10px;
   outline: none;
   border: none;
-  margin-bottom: 14px;
-  background: #eee;
+  margin-bottom: 18px;
+  background: rgb(206, 202, 202);
   font-weight: bold;
   font-size: 14px;
 }
@@ -74,13 +75,12 @@ body {
   border-radius: 5px;
   font-size: 16px;
   cursor: pointer;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .joinBtn {
   background-color: #febc04;
   width: 100px;
-  margin-left: auto;
   margin-bottom: 14px;
   font-weight: bold;
   font-size: 15px;
@@ -90,12 +90,19 @@ body {
   background-color: greenyellow;
 }
 
+.createRoomSection {
+  margin-bottom: 14px;
+}
 .createNewRoomBtn {
   color: #febc04;
   text-decoration: none;
-  transition: all 0.3s ease-in-out;
+  transition: all 0.2s ease-in-out;
 }
 
 .createNewRoomBtn:hover {
   color: greenyellow;
+}
+
+.createRoomInfo {
+  margin-bottom: 12px;
 }
