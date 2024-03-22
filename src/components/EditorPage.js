@@ -5,12 +5,29 @@ import { initSocket } from "../utillity/socket";
 import { ACTIONS } from "../utillity/constants";
 import { useLocation, useParams } from "react-router-dom";
 import { toast } from "react-hot-toast";
+import { useNavigate } from "react-router-dom";
 
 export const EditorPage = () => {
   const socketRef = useRef(null);
   const { roomId } = useParams();
   const location = useLocation();
   const [clients, setClients] = useState([]);
+  const navigate = useNavigate();
+
+  const copyRoomId = async () => {
+    try {
+      await navigator.clipboard.writeText(roomId);
+      toast.success("Copied RoomId");
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
+  const leaveRoom = async () => {
+    navigate("/");
+    socketRef.current.removeAllListeners();
+    socketRef.current.disconnect();
+  };
 
   useEffect(() => {
     const init = async () => {
@@ -47,8 +64,12 @@ export const EditorPage = () => {
   return (
     <div className="editorPage">
       <div className="editorInfoSection">
-        <button className="btn copyRoomBtn">Copy Room Id</button>
-        <button className="btn leaveBtn">Leave</button>
+        <button className="btn copyRoomBtn" onClick={copyRoomId}>
+          Copy Room Id
+        </button>
+        <button className="btn leaveBtn" onClick={leaveRoom}>
+          Leave
+        </button>
         <h4>Connected</h4>
         <div className="clientSection">
           {clients?.map((client) => {
@@ -57,7 +78,7 @@ export const EditorPage = () => {
         </div>
       </div>
       <div className="editor">
-        <CodeEditor />
+        <CodeEditor socketRef={socketRef} roomId={roomId} />
       </div>
     </div>
   );
