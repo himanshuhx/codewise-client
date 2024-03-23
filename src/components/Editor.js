@@ -5,20 +5,18 @@ import { ACTIONS } from "../utillity/constants";
 const CodeEditor = ({ socketRef, roomId }) => {
   const [code, setCode] = useState();
 
-  const handleEditorChange = (value) => {
-    console.log("editor", value);
-    setCode(value);
+  const handleEditorChange = (code) => {
     socketRef.current.emit(ACTIONS.CODE_CHANGE, { roomId, code });
+    setCode(code);
   };
 
   useEffect(() => {
     if (socketRef.current) {
-      socketRef.current.on(ACTIONS.CODE_CHANGE, async ({ code }) => {
+      socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
         setCode(code);
       });
     }
-    console.log(code);
-  }, []);
+  }, [socketRef.current]);
 
   return (
     <Editor
