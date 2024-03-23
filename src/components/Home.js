@@ -6,7 +6,6 @@ import Header from "./Header";
 const Home = () => {
   return (
     <div className="homePageWrapper">
-      <Header />
       <Form />
       <Footer />
     </div>

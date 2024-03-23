@@ -5,28 +5,25 @@ import { ACTIONS } from "../utillity/constants";
 const CodeEditor = ({ socketRef, roomId }) => {
   const [code, setCode] = useState();
 
-  const handleEditorChange = async (value) => {
+  const handleEditorChange = (value) => {
+    console.log("editor", value);
     setCode(value);
     socketRef.current.emit(ACTIONS.CODE_CHANGE, { roomId, code });
   };
 
   useEffect(() => {
     if (socketRef.current) {
-      socketRef.current.on(ACTIONS.CODE_CHANGE, ({ code }) => {
+      socketRef.current.on(ACTIONS.CODE_CHANGE, async ({ code }) => {
         setCode(code);
       });
     }
-
-    return () => {
-      socketRef.current.off(ACTIONS.CODE_CHANGE);
-    };
-  }, [code]);
+    console.log(code);
+  }, []);
 
   return (
     <Editor
       height="100%"
       language="javascript"
-      theme="vs-dark"
       options={{
         inlineSuggest: true,
         fontSize: "25px",

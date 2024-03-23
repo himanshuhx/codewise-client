@@ -17,7 +17,7 @@ export const EditorPage = () => {
   const copyRoomId = async () => {
     try {
       await navigator.clipboard.writeText(roomId);
-      toast.success("Copied RoomId");
+      toast.success("RoomId Copied to Clipboard");
     } catch (err) {
       console.log(err);
     }
@@ -40,12 +40,18 @@ export const EditorPage = () => {
       // listen for joined users
       socketRef.current.on(ACTIONS.JOINED, (data) => {
         const { connectedClients, username } = data;
+        const isSameUser = clients?.some(
+          (client) => client.username === username
+        );
+
         if (username !== location.state.userName) {
           toast.success(`${username} joined the room`);
         } else {
           toast.success(`You joined the room`);
         }
-        setClients(connectedClients);
+        if (!isSameUser) {
+          setClients(connectedClients);
+        }
       });
 
       // listen for disconnected users
@@ -65,18 +71,19 @@ export const EditorPage = () => {
     <div className="editorPage">
       <div className="editorInfoSection">
         <button className="btn copyRoomBtn" onClick={copyRoomId}>
-          Copy Room Id
+          Copy RoomId
         </button>
         <button className="btn leaveBtn" onClick={leaveRoom}>
           Leave
         </button>
-        <h4>Connected</h4>
+        <h4>CONNECTED</h4>
         <div className="clientSection">
           {clients?.map((client) => {
             return <Client username={client.username} />;
           })}
         </div>
       </div>
+
       <div className="editor">
         <CodeEditor socketRef={socketRef} roomId={roomId} />
       </div>
