@@ -6,7 +6,7 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 
-  background: #f7b368;
+  background: #1e1e1e;
 }
 
 .homePageWrapper {
@@ -17,7 +17,7 @@ body {
 }
 
 .formWrapper {
-  background-color: #feebaf;
+  background-color: #e6e1e1;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -25,12 +25,12 @@ body {
   width: 60vh;
   max-width: 80%;
   border-radius: 20px;
-  box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  box-shadow: 0 4px 8px 0 rgba(196, 191, 191, 0.3),
+    0 6px 20px 0 rgba(196, 191, 191, 0.3);
 }
 
 .homePageLogo {
-  height: 20vh;
-  margin-bottom: 14px;
+  width: 80%;
 }
 
 .formWrapper input {
@@ -38,8 +38,8 @@ body {
 }
 
 .mainLabel {
-  margin-bottom: 18px;
-  margin-top: 0;
+  margin-bottom: 15px;
+  font-weight: 600;
 }
 
 .homeInput {
@@ -48,14 +48,16 @@ body {
   outline: none;
   border: none;
   margin-bottom: 18px;
-  background: #e6e1e1;
+  background: #3e3e3e;
   font-weight: bold;
   font-size: 14px;
+  color: white;
 }
 
 .footer {
   position: fixed;
   bottom: 0;
+  color: #e6e1e1;
 }
 
 .btn {
@@ -69,7 +71,8 @@ body {
 }
 
 .joinBtn {
-  background-color: #faa274;
+  background-color: #2f3c66;
+  color: white;
   width: 100px;
   margin-bottom: 14px;
   font-weight: bold;
@@ -84,13 +87,23 @@ body {
   margin-bottom: 14px;
 }
 .createNewRoomBtn {
-  color: #2f3c66;
+  color: rgb(230, 26, 26);
   text-decoration: none;
+  font-weight: 600;
   transition: all 0.2s ease-in-out;
 }
 
 .createNewRoomBtn:hover {
   color: green;
+}
+
+.editorBtn {
+  position: fixed;
+  bottom: 0;
+  margin-bottom: 20px;
+  display: flex;
+  flex-direction: column;
+  width: 200px;
 }
 
 .copyRoomBtn {
@@ -118,20 +131,27 @@ body {
   height: 100vh;
 }
 
-.editor > section {
-  font-size: 120px;
-}
-
 .editorInfoSection {
   display: flex;
   flex-direction: column;
   padding: 20px;
-  background-color: #feebaf;
+  background-color: #e6e1e1;
 }
+
+.logo {
+  border-bottom: 1px solid #2f3c66;
+  padding: 10px;
+  margin-bottom: 20px;
+}
+
+.editorLogo {
+  height: 60px;
+  width: inherit;
+}
+
 .editorInfoSection > h4 {
-  text-align: center;
   font-size: 25px;
-  font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
+  text-align: center;
 }
 
 .clientSection {
@@ -140,6 +160,51 @@ body {
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: space-around;
-  align-items: center;
   text-align: center;
+}
+
+@media (max-width: 700px) {
+  .editorPage {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .editorInfoSection {
+    width: auto;
+  }
+
+  .editor {
+    height: 70%;
+  }
+
+  .editorInfoSection > h4 {
+    margin-top: 7px;
+    margin-bottom: 7px;
+  }
+
+  .logo {
+    margin-bottom: 2px;
+  }
+
+  .editorBtn {
+    position: relative;
+    margin-bottom: 2px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    width: auto;
+  }
+
+  .copyRoomBtn {
+    margin-bottom: 0px;
+    width: 35vw;
+  }
+
+  .leaveBtn {
+    width: 35vw;
+  }
+
+  .client {
+    padding: 5px;
+  }
 }

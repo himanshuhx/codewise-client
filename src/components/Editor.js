@@ -22,6 +22,7 @@ const CodeEditor = ({ socketRef, roomId }) => {
     <Editor
       height="100%"
       language="javascript"
+      theme="vs-dark"
       options={{
         inlineSuggest: true,
         fontSize: "25px",

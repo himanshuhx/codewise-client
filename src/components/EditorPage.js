@@ -70,20 +70,28 @@ export const EditorPage = () => {
   return (
     <div className="editorPage">
       <div className="editorInfoSection">
-        <button className="btn copyRoomBtn" onClick={copyRoomId}>
-          Copy RoomId
-        </button>
-        <button className="btn leaveBtn" onClick={leaveRoom}>
-          Leave
-        </button>
+        <div className="logo">
+          <img
+            className="editorLogo"
+            src="../../code-wise-logo.png"
+            alt="code-wise-logo"
+          ></img>
+        </div>
         <h4>CONNECTED</h4>
         <div className="clientSection">
           {clients?.map((client) => {
             return <Client username={client.username} />;
           })}
         </div>
+        <div className="editorBtn">
+          <button className="btn copyRoomBtn" onClick={copyRoomId}>
+            Copy RoomId
+          </button>
+          <button className="btn leaveBtn" onClick={leaveRoom}>
+            Leave
+          </button>
+        </div>
       </div>
-
       <div className="editor">
         <CodeEditor socketRef={socketRef} roomId={roomId} />
       </div>
